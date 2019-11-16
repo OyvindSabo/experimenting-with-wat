@@ -3,15 +3,11 @@ const util = require('util');
 
 const readFile = util.promisify(fs.readFile);
 
-const WebAssemblyFunctions = {};
-
-init = async () =>
-  readFile('./add.wasm')
+const loadWebAssemblyFunctions = async path =>
+  readFile(path)
     .then(WebAssembly.instantiate)
-    .then(({ instance }) =>
-      Object.assign(WebAssemblyFunctions, instance.exports)
-    );
+    .then(({ instance }) => instance.exports);
 
-init().then(() => {
+loadWebAssemblyFunctions('./add.wasm').then(WebAssemblyFunctions => {
   console.log(WebAssemblyFunctions.add(8, 5));
 });
