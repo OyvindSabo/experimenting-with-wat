@@ -26,9 +26,9 @@ $ wat2wasm add.wat -o add.wasm
 
 This will produce an add.wasm file containing the binary representation of our WebAssembly module
 
-### Load and Call the binary WebAssembly module with JavaScript
+### Load and call the binary WebAssembly module with JavaScript
 
-To test that our module works, call we load it into a Node program, and then, and then use it to print the sum of 8 and 5.
+To test that our module works, we load it into a JavaScript program, and then use it to print the sum of 8 and 5.
 
 ```
 // add.js
@@ -48,7 +48,7 @@ loadWebAssemblyFunctions('./add.wasm').then(WebAssemblyFunctions => {
 });
 ```
 
-### Run the Program using Node.js
+### Run the program using Node.js
 
 ```
 $ node add
